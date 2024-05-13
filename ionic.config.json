@@ -1,0 +1,7 @@
+{
+  "name": "Foro Filosofia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
