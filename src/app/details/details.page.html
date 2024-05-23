@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>Atras</ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h4>
+        <!-- <ion-icon name="chevron-back-outline" ></ion-icon> -->
+        Foro de Filosofia '24
+        <!-- <ion-icon ></ion-icon> -->
+      </h4>
+    </ion-title>
+  </ion-toolbar>
+  <img src="../../assets/icon/favicon.png" alt="logo">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h4>{{evento.Evento}}</h4>
+        <ion-badge>{{evento.Hora.Inicio}}-{{evento.Hora.Fin}}</ion-badge>
+        <p>{{evento.Descripcion}}</p>
+        <h6>Ubicacion:</h6>
+        <ion-badge *ngFor="let ubi of evento.Ubicacion">{{ubi}}</ion-badge>
+        <img *ngFor="let img of evento.imagenes" src="../../assets/{{img}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
