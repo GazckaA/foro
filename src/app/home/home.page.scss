@@ -1,131 +1,62 @@
-ion-header {
-  ion-toolbar {
+ion-header { // Afecta a todos los elementos dentro de <ion-header>
+  ion-toolbar { // Hace transparente la barra de navegacion
     --background: rgba(0,0,0,0);
   }
 
-  h4 {
-    font-weight: bold;
-    font-size: 24px;
+  h4 { //Afecta a todos los h4 dentro de <h4>
+    font-weight: bold; //Pone en negrita el texto
+    font-size: 24px; //Tamaño de la fuente
   }
 
- .titles {
-   padding: 0 2rem;
- }
-
- ion-searchbar {
-   --background: rgba(0,0,0,.04);
-   --box-shadow: none;
-   --border-radius: 6px;
- }
-
- img {
-   transform: scale(1.2, 1.2);
-   opacity: .2;
-   position: absolute;
-   top: -120px;
-   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+ .titles { //Afecta a todos los elementos con class="titles"
+   padding: 0 2rem; //espaciado de 0 arriba y abajo y 2rem a los lados
  }
 
 }
 
 
-ion-content {
-  .active {
+ion-content { //Afecta a todos los elementos dentro de <ion-content>
+  //esta clase se usa para cuando se muestra un evento en pantalla y esta activo
+  //se ve de un color mas vivo
+  .active { //Afecta a todos los elementos con class="active"
 
-    background-color: #F0F0EC;
-    border: 3px solid #527D65;
-    color: black;
+    background-color: #F0F0EC; //Color de fondo
+    border: 3px solid #527D65; //Borde de 3px solido de color #527D65
+    color: black; //Color del texto
 
-   ion-col {
-     ion-img {
-       position: relative;
-       bottom: 36px;
-       width: 120px;
-     }
+   ion-card-title { //Afecta a el titulo de las card
+     font-weight:  900; //Hace grande el texto
+     color: #527D65; //Color del texto
    }
 
-   .mask {
-     img {
-       width: 220px;
-       position: absolute;
-       bottom: 0px;
-       left: 160px;
-       mask-image: linear-gradient(to top, rgba(0,0,0,.1), rgba(0,0,0,0));
-       -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.1), rgba(0,0,0,0));
-     }
-   }
+  }
 
-   ion-badge {
-     margin-top: 8px;
-     background: rgba(0,0,0,.2);
-   }
+  .inactive { //Afecta a todos los elementos con class="inactive"
+    //esta clase se usa para cuando se muestra un evento en pantalla pero no esta activo
+    //se ve de un color mas apagado
+    background-color: grey; //Color de fondo
+    border: 3px solid black; //Borde de 3px solido
+    color: black; //Color del texto
+
+    opacity: .5; //Opacidad del 50%
 
    ion-card-title {
      font-weight:  900;
      color: #527D65;
    }
 
-   .no {
-     color: rgba(0,0,0,.66);
-     font-weight: bold;
-   }
-
   }
 
-  .inactive {
-
-    background-color: grey;
-    border: 3px solid black;
-    color: black;
-
-    opacity: .5;
-
-   ion-col {
-     ion-img {
-       position: relative;
-       bottom: 36px;
-       width: 120px;
-     }
-   }
-
-   .mask {
-     img {
-       width: 220px;
-       position: absolute;
-       bottom: 0px;
-       left: 160px;
-       mask-image: linear-gradient(to top, rgba(0,0,0,.1), rgba(0,0,0,0));
-       -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.1), rgba(0,0,0,0));
-     }
-   }
-
-   ion-badge {
-     margin-top: 8px;
-     background: rgba(0,0,0,.2);
-   }
-
-   ion-card-title {
-     font-weight:  900;
-     color: #527D65;
-   }
-
-   .no {
-     color: rgba(0,0,0,.66);
-     font-weight: bold;
-   }
-
-  }
-
-  .quote{
-    background-color: #527D65;
-    border: 3px solid #F0F0EC;
-    ion-card-title {
-      font-weight:  600;
-      color: #F0F0EC;
+  .quote{ //Afecta a todos los elementos con class="quote"
+    //esta clase se usa para mostrar la cita de la API
+    background-color: #527D65; //Color de fondo
+    border: 3px solid #F0F0EC; //Borde de 3px solido
+    ion-card-title { //Afecta a lo que va a ser la cita
+      font-weight:  600; //Hace grande el texto de la cita
+      color: #F0F0EC; //Color del texto
     }
-    ion-card-subtitle {
-      color: black;
+    ion-card-subtitle { //Afecta a lo que va a ser el autor de la cita
+      color: black; //Color del texto
     }
   }
 }

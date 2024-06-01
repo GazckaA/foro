@@ -1,47 +1,58 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      <h4>
+  <ion-toolbar> <!-- Barra de navegacion -->
+    <ion-title> <!-- Titulo de la pagina -->
+      <h4> 
       How to adult?
       </h4>
-    </ion-title>
-  </ion-toolbar>
-  <!-- <img src="../../assets/icon/favicon.png" alt="logo"> -->
+    </ion-title> <!-- Fin de titulo de la pagina -->
+  </ion-toolbar> <!-- Fin de barra de navegacion -->
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" style="position:static;">
+    <!-- Todo lo que esta entre <ion-refresher> y </ion-refresher>
+    funciona para que cuando jales hacia abajo la pagina salga un
+    circulo de carga y se refresque la pagina -->
     <ion-refresher-content
-      pullingIcon="chevron-down-circle-outline"
+      pullingIcon="chevron-down-circle-outline" 
       pullingText="Pull to refresh"
       refreshingSpinner="circles"
       refreshingText="Refreshing..."
-    >
+    ><!-- En los parametros de esta etiqueta (<ion-refresher-content>)
+      se define como va a ser el icono y que va a decir -->
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card class="quote" *ngIf="Quote.quote != ''">
-    <ion-card-header>
-      <ion-card-title>{{Quote.quote}}</ion-card-title>
-      <ion-card-subtitle>{{Quote.source}}</ion-card-subtitle>
+  <ion-card class="quote" *ngIf="Quote.quote != ''"> <!-- Una card para mostrar la frase de la API 
+  *ngIf dice que la cita se muestre solo si no esta vacia (si ya respondio la API y hay una cita que mostrar)-->
+    <ion-card-header> <!-- Solo se usa la parte del titulo de la card -->
+      <ion-card-title>{{Quote.quote}}</ion-card-title> <!-- Se muestra la cita en grande -->
+      <ion-card-subtitle>{{Quote.source}}</ion-card-subtitle> <!-- Se muestra el (la) autor(a) de la cita -->
     </ion-card-header>
-  </ion-card>
+  </ion-card> <!-- Fin de la card de la cita -->
 
-  <div *ngFor="let evento of cronograma">
+  <div *ngFor="let evento of cronograma"> <!-- Esta es una division que se repite una vez por cada objeto que haya dentro de la variable "cronograma" que esta en details.page.ts. Cada vez que se repite agarra un objeto y lo asigna a "evento" -->
     <ion-card
     *ngIf="evento.Show === true || preTime(evento.Hora.Inicio, evento.Hora.Fin)"
     (click)="details(evento)" 
-    [ngClass]="time(evento.Hora.Inicio, evento.Hora.Fin)  ? 'active': 'inactive'">
-      <ion-card-header>
-        <ion-card-title>{{evento.Evento}}</ion-card-title>
-        <ion-card-subtitle>{{evento.Hora.Inicio}} - {{evento.Hora.Fin}}</ion-card-subtitle>
-      </ion-card-header>
+    [ngClass]="time(evento.Hora.Inicio, evento.Hora.Fin)  ? 'active': 'inactive'"> <!-- Aqui empieza la card que se usa para el evento de la division. 
+    Tiene tres parametros la card:
+    -> *ngIf dice que si se cumple la condicion entre comillas se va a mostrar la card. En este caso dice que si el atributo del evento "Show" es verdadero (evento.Show === true) o la funcion preTime (que esta explicada en home.page.ts) regresa verdadero cuando le pasas el horario del evento (preTime(evento.Hora.Inicio, evento.Hora.Fin)), si alguna de esas dos condiciones se cumple se muestra la carta
+  
+    -> (click) dice que cuando se haga click sobre la carta se ejecutara la funcion entre comillas (details(evento)). En este caso se ejecuta una funcion que te lleva a la pagina de detalles y le pasa el evento al que le picaste.
+  
+    -> [ngClass] dice que clase de css va a tener. Que sea [ngClass] y no solo class sirve para que puedas cambiar la clase a la mitad de la ejecucion (sin tener que cambiar codigo) basado en una condicion previamente codificada. En este caso nos dice que si la funcion time (que esta explicada en home.page.ts) regresa verdadero cuando le pasas el horario del evento (time(evento.Hora.Inicio, evento.Hora.Fin)  ?) usa la clase 'active' y si regresa falso usa la clase 'inactive' (las dos clases se toman de home.page.scss y estan explicadas ahi) -->\
+    
+      <ion-card-header> <!-- Aqui empieza la parte del titulo de la card -->
+        <ion-card-title>{{evento.Evento}}</ion-card-title> <!-- Aqui se muestra el nombre del evento -->
+        <ion-card-subtitle>{{evento.Hora.Inicio}} - {{evento.Hora.Fin}}</ion-card-subtitle> <!-- Aqui se muestra el horario del evento -->
+      </ion-card-header> <!-- Aqui termina la parte del titulo de la card -->
 
-      <ion-card-content>
-        {{evento.Descripcion}}
-      </ion-card-content>
-    </ion-card>
-  </div>
+      <ion-card-content> <!-- Aqui empieza la parte del contenido de la card -->
+        {{evento.Descripcion}} <!-- Aqui se muestra la descripcion del evento -->
+      </ion-card-content> <!-- Aqui termina la parte del contenido de la card -->
+    </ion-card> <!-- Aqui termina la card del evento -->
+  </div> <!-- Aqui termina la division que se repite por cada objeto de la variable "cronograma" -->
   
 </ion-content>

@@ -1,35 +1,28 @@
-*{
-  background-color: #F0F0EC;
-  color: black;
-}
+*{ //afecta a todo
+  background-color: #F0F0EC;  //color de fondo
+  color: black;//color de letra
+} 
 
-ion-header {
+ion-header { //afecta a los elementos que estan dentro de <ion-header>
 
-  ion-title{
+  ion-title{ //afecta a los elementos que estan dentro de <ion-title>
     display: flex;
     padding: 0%;
+    //para acomodar el titulo
   }
 
-  h4 {
-    font-weight: bold;
-    font-size: 20px;
-    color: black;
-    // align-items: start;
-    // justify-content: space-between;
-    // display: flex;
+  h4 { //afecta a los elementos que estan dentro de <h4>
+    font-weight: bold; //negrita
+    font-size: 20px; //tamaño de letra
+    color: black; //color de letra
   }
 
-  .titles {
-    padding: 0 2rem;
+  .titles { //afecta a los elementos que estan dentro de una etiqueta con class="titles"  
+    padding: 0 2rem; //espaciado
   }
 
-  ion-searchbar {
-    --background: rgba(0,0,0,.04);
-    --box-shadow: none;
-    --border-radius: 6px;
-  }
-
-  img {
+  img { //afecta a los elementos que estan dentro de <img>
+    //Acomoda la imagen en el fondo de la pantalla con un degradado 
     transform: scale(1.2, 1.2);
     opacity: .4;
     position: absolute;
@@ -41,30 +34,32 @@ ion-header {
 }
   
   
-ion-content {
-  --background: #F0F0EC;
+ion-content { //afecta a los elementos que estan dentro de <ion-content>
+  --background: #F0F0EC; //color de fondo de todo el contenido
 
-  padding: 5%;
-  align-items: center;
-  justify-content: center;
+  padding: 5%; //espaciado de todo lo que este dentro del contenido
+  align-items: center; //centra los elementos
+  justify-content: center; //centra los elementos
     
 
-  ion-badge {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    background: #ACB9B0;
+  ion-badge { //afecta a los elementos que estan dentro de <ion-badge>
+    margin-top: 5px; //espaciado de los elementos que le queden arriba
+    margin-bottom: 5px; //espaciado de los elementos que le queden abajo
+    margin-right: 5px; //espaciado de los elementos que le queden a la derecha
+    background: #ACB9B0; //color de fondo
   }
 
-  h4 {
-    font-weight: bold;
-    font-size: 30px;
-    color: #527D65;
+  h4 { //afecta a los elementos que estan dentro de <h4>
+    //Para titulos
+    font-weight: bold; //negrita
+    font-size: 30px; //tamaño de letra
+    color: #527D65; //color de letra
   }
 
-  h6 {
-    font-weight: bold;
-    font-size: 20px;
-    color: #527D65;
+  h6 { //afecta a los elementos que estan dentro de <h6>
+    //Para subtitulos
+    font-weight: bold; //negrita
+    font-size: 20px; //tamaño de letra
+    color: #527D65; //color de letra
   }
 }
